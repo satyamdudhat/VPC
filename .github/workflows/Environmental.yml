@@ -5,7 +5,9 @@ on:
             - dev
 jobs:
     build:
-        environment: ${{ github.event_name.environment == 'development' }}
+        environment:
+            name: stage
+            
         runs-on: ubuntu-latest
         steps:
             - name: Chekout Repo
