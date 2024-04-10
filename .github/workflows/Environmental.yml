@@ -5,9 +5,7 @@ on:
             - dev
 jobs:
     build:
-        environment:
-            name: stage
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' }}
+        environment: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' && 'stage' }}
         runs-on: ubuntu-latest
         steps:
             - name: Chekout Repo
