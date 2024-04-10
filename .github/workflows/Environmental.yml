@@ -1,1 +1,12 @@
+name: "Environmental"
+on:
+    push:
+        branches:
+            - dev
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Chekout Repo
+              uses: actions/checkout@v4
 
