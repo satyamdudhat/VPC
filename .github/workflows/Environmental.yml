@@ -8,5 +8,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Chekout Repo
-              uses: actions/checkoutrepo@v4
+              uses: actions/checkout@v4
 
