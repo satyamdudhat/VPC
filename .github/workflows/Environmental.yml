@@ -6,8 +6,8 @@ on:
 jobs:
     build:
         environment:
-            name: stage
-            
+            name: developement
+
         runs-on: ubuntu-latest
         steps:
             - name: Chekout Repo
