@@ -3,5 +3,4 @@ resource "aws_nat_gateway" "nat_gateway" {
     subnet_id = aws_subnet.vpc_public_subnet[0].id
     tags = {
         Name = "nat_gateway"
-    }
 }
