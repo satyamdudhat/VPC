@@ -3,10 +3,25 @@ on:
     push:
         branches:
             - dev
+            - stage
 jobs:
-    build:
+    Dev:
+        name: Dev Environment
+        if: ${{ github.ref == 'refs/heads/dev' }}
+        environment:
+            name: dev
         runs-on: ubuntu-latest
         steps:
             - name: Chekout Repo
               uses: actions/checkout@v4
 
+
+    Prod:
+        name: Stage Environment
+        if: ${{ github.ref == 'refs/heads/stage' }}
+        environment:
+            name: stage
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout-repo
+              uses: actions/checkout@v4
