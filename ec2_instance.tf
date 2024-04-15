@@ -1,9 +1,9 @@
 data "aws_subnet" "vpc_public_subnet" {
   filter {
     name = "tag:Name"
-    values = [ "Subnet-public : Public_Subnet 1" ]
+    values = [ "Subnet-Public : Public_Subnet 1" ]
   }
-  depends_on = [ aws_route_table_association.public_subnet ]
+  depends_on = [ aws_route_table_association.public_subnet_asso ]
 }
 # Base on the tag name we are doinf a fertiler to get a particalr resurce or id data we use data block to fecth a data 
 

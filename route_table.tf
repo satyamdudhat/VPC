@@ -9,7 +9,7 @@ resource "aws_route_table" "public_route_table" {
   }
 }
 
-resource "aws_route_table_association" "public_subnet" {                                            
+resource "aws_route_table_association" "public_subnet_asso" {                                            
     count = length(var.public_subnets_cidr)
     depends_on = [ aws_subnet.vpc_public_subnet, aws_route_table.public_route_table ]
     subnet_id = element(aws_subnet.vpc_public_subnet[*].id, count.index)
@@ -43,7 +43,7 @@ resource "aws_route_table" "private_route_table" {
   }
 }
 
-resource "aws_route_table_association" "private_subnet" {                                            
+resource "aws_route_table_association" "private_subnet_asso" {                                            
     count = length(var.private_subnets_cidr)
     depends_on = [ aws_subnet.vpc_private_subnet, aws_route_table.private_route_table ]
     subnet_id = element(aws_subnet.vpc_private_subnet[*].id, count.index)
