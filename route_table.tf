@@ -12,7 +12,6 @@ resource "aws_route_table" "public_route_table" {
 
 
 resource "aws_route_table" "private_route_table" {
-  count = length(var.private_subnets_cidr)
   vpc_id = aws_vpc.vpc.id
   depends_on = [ aws_nat_gateway.nat_gateway ]
   route {
