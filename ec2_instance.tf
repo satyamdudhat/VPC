@@ -14,7 +14,6 @@ resource "aws_instance" "ec2_instance_vpc" {
   tags = {
     Name = "ec2_instance_vpc"
   }
-  key_name = "vpc_instance_key"
   subnet_id = data.aws_subnet.vpc_public_subnet.id
   vpc_security_group_ids = [ aws_security_group.security_group_vpc_Instance.id ]
 }
