@@ -1,7 +1,7 @@
 data "aws_subnet" "vpc_public_subnet" {
   filter {
     name = "tag:Name"
-    values = [ "Subnet-Public : Public_Subnet 1" ]
+    values = [ "Public_Subnet 1" ]
   }
   depends_on = [ aws_route_table_association.public_subnet_asso ]
 }
