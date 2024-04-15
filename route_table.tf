@@ -42,3 +42,10 @@ resource "aws_route_table" "private_route_table" {
     Name = "This is an private route table"
   }
 }
+
+resource "aws_route_table_association" "private_subnet" {                                            
+    count = length(var.private_subnets_cidr)
+    depends_on = [ aws_subnet.vpc_private_subnet, aws_route_table.private_route_table ]
+    subnet_id = element(aws_subnet.private_subnet[*].id, count.index)
+    route_table_id = aws_route_table.private_route_table.id
+}
