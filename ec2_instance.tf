@@ -1,4 +1,4 @@
-data "aws_subnet" "public_subnets" {
+data "aws_subnet" "vpc_public_subnet" {
   filter {
     name = "tag:Name"
     values = [ "Subnet-public : Public_Subnet 1" ]
@@ -15,6 +15,6 @@ resource "aws_instance" "ec2_instance_vpc" {
     Name = "ec2_instance_vpc"
   }
   key_name = "vpc_instance_key"
-  subnet_id = data.aws_subnet.public_subnets.id
+  subnet_id = data.aws_subnet.vpc_public_subnet.id
   vpc_security_group_ids = [ aws_security_group.security_group_vpc_Instance.id ]
 }
