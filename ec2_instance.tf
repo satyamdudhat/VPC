@@ -11,6 +11,7 @@ data "aws_subnet" "vpc_public_subnet" {
 resource "aws_instance" "ec2_instance_vpc" {
   ami = "ami-09298640a92b2d12c"
   instance_type = "t2.micro"
+  associate_public_ip_address = true
   tags = {
     Name = "ec2_instance_vpc"
   }
